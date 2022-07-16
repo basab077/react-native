@@ -70,7 +70,12 @@ export const Natureimage = (props) => {
         source={props.ImgSrc}
         style={{ width: 300, height: 300, marginLeft: 50 }}
       />
-      <Text style={styles.textstyle}>{props.textData}</Text>
+      <Button
+        onPress={(props) => {
+          Alert.alert("Do you want  to learn" + props.textData);
+        }}
+        title={props.textData}
+      />
     </View>
   );
 };
@@ -84,5 +89,3 @@ const styles = StyleSheet.create({
   },
 });
 export default Natureimage;
-
-
