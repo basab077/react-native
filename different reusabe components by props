@@ -1,0 +1,88 @@
+// App.js
+
+//import librariess to create components
+import React from "react";
+import {
+  Text,
+  StyleSheet,
+  View,
+  Image,
+  FLatlist,
+  FlatList,
+  Button,
+  Alert,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
+import Natureimage from "./components/image";
+
+// create a component that return some jsx
+const App = () => {
+  return (
+    <ScrollView>
+      <Natureimage
+        textData="Web Development"
+        ImgSrc={require("./assets/webdev.png")}
+      />
+      <Natureimage
+        textData="Android Development"
+        ImgSrc={require("./assets/mobiledev.png")}
+      />
+      <Natureimage
+        textData="Artificial Inteligence"
+        ImgSrc={require("./assets/machine.png")}
+      />
+      <Natureimage
+        textData="Blockchain"
+        ImgSrc={require("./assets/blockchain.png")}
+      />
+      <Natureimage
+        textData="Backend Development"
+        ImgSrc={require("./assets/backend.png")}
+      />
+    </ScrollView>
+  );
+};
+
+export default App;
+
+
+
+
+// components=>images.js
+import React from "react";
+import {
+  Text,
+  StyleSheet,
+  View,
+  Image,
+  FLatlist,
+  FlatList,
+  Button,
+  Alert,
+  TouchableOpacity,
+} from "react-native";
+
+export const Natureimage = (props) => {
+  return (
+    <View>
+      <Image
+        source={props.ImgSrc}
+        style={{ width: 300, height: 300, marginLeft: 50 }}
+      />
+      <Text style={styles.textstyle}>{props.textData}</Text>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  textstyle: {
+    textAlign: "center",
+    color: "blue",
+    fontSize: 20,
+    fontFamily: "monospace",
+  },
+});
+export default Natureimage;
+
+
