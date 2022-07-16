@@ -1,0 +1,71 @@
+// components=> image.js
+
+import React from "react";
+import {
+  Text,
+  StyleSheet,
+  View,
+  Image,
+  FLatlist,
+  FlatList,
+  Button,
+  Alert,
+  TouchableOpacity,
+} from "react-native";
+
+export const Natureimage = () => {
+  return (
+    <View>
+      <Image
+        source={require("../assets/loginimg.png")}
+        style={{ width: 300, height: 300, marginLeft: 40 }}
+      />
+      <Text style={styles.textstyle}>Safe and Fast Payment.</Text>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  textstyle: {
+    textAlign: "center",
+    color: "blue",
+    fontSize: 20,
+    fontFamily: "monospace",
+  },
+});
+export default Natureimage;
+
+
+// App.js
+
+//import librariess to create components
+import React from "react";
+import {
+  Text,
+  StyleSheet,
+  View,
+  Image,
+  FLatlist,
+  FlatList,
+  Button,
+  Alert,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
+import Natureimage from "./components/image";
+
+// create a component that return some jsx
+const App = () => {
+  return (
+    <ScrollView>
+      <Natureimage />
+      <Natureimage />
+      <Natureimage />
+      <Natureimage />
+      <Natureimage />
+      <Natureimage />
+    </ScrollView>
+  );
+};
+
+export default App;
