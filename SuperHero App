@@ -1,0 +1,120 @@
+// App.js
+
+//import librariess to create components
+import React from "react";
+import {
+  Text,
+  StyleSheet,
+  View,
+  Image,
+  FLatlist,
+  FlatList,
+  Button,
+  Alert,
+  TouchableOpacity,
+  ScrollView,
+  ImageBackground,
+} from "react-native";
+import Heroes from "./components/Heroes";
+
+// create a component that return some jsx
+const App = () => {
+  return (
+    <ImageBackground source={require("./assets/lab.jpg")}>
+      <ScrollView>
+        <Heroes
+          name="Doctor Strange"
+          ImgSrc={require("./assets/doctor.jpg")}
+          textData="Doctor Stephen Vincent Strange, M.D., Ph.D is a Master of the Mystic Arts. Originally being a brilliant but arrogant neurosurgeon, Strange got into a car accident which resulted with his hands becoming crippled. Once Western medicine failed him, Strange embarked on a journey to Kamar-Taj, "
+        />
+        <Heroes
+          name="Spider Man"
+          ImgSrc={require("./assets/spider.jpeg")}
+          textData="In Spider-Man's first story, in Marvel Comics' Amazing Fantasy, no. 15 (1962), American teenager Peter Parker, a poor sickly orphan, is bitten by a radioactive spider. As a result of the bite, he gains superhuman strength, speed, and agility along with the ability to cling to walls."
+        />
+        <Heroes
+          name="Hulk"
+          ImgSrc={require("./assets/hulk.jpg")}
+          textData="Bruce Banner lives a life caught between the soft-spoken scientist he's always been and the uncontrollable green monster powered by his rage. Exposed to heavy doses of gamma radiation, scientist Bruce Banner transforms into the mean, green rage machine called the Hulk."
+        />
+      </ScrollView>
+    </ImageBackground>
+  );
+};
+
+export default App;
+
+
+// components=>heroes.js
+
+//import librariess to create components
+import React from "react";
+import {
+  Text,
+  StyleSheet,
+  View,
+  Image,
+  FLatlist,
+  FlatList,
+  Button,
+  Alert,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
+
+// create a component that return some jsx
+const Heroes = (props) => {
+  return (
+    <View style={styles.mainCard}>
+      <Text style={styles.heading}>SuperHeroes</Text>
+      <Image
+        source={props.ImgSrc}
+        style={{
+          width: 230,
+          height: 230,
+          borderRadius: 80,
+          marginBottom: 25,
+        }}
+      />
+      <Text style={styles.name}>{props.name}</Text>
+      <Text style={styles.data}>{props.textData}</Text>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  mainCard: {
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#1C0A00",
+    marginTop: 100,
+    marginLeft: 30,
+    marginRight: 30,
+    height: 600,
+    borderRadius: 70,
+  },
+
+  data: {
+    fontSize: 15,
+    textAlign: "center",
+    marginHorizontal: 40,
+    paddingTop: 20,
+    color: "white",
+  },
+
+  heading: {
+    color: "white",
+    fontSize: 35,
+    fontFamily: "monospace",
+    paddingBottom: 20,
+    marginBottom: 20,
+  },
+  name: {
+    color: "white",
+    fontSize: 25,
+    fontFamily: "monospace",
+    marginTop: 10,
+  },
+});
+export default Heroes;
+
