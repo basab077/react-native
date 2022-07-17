@@ -1,0 +1,336 @@
+//import librariess to create components
+import React from "react";
+import {
+  Text,
+  StyleSheet,
+  View,
+  Image,
+  FlatList,
+  Button,
+  Alert,
+  TouchableOpacity,
+  ScrollView,
+  ImageBackground,
+} from "react-native";
+import Heroes from "./components/Heroes";
+import CryptoCard from "./components/cryptoCard";
+import {
+  DancingScript_400Regular,
+  DancingScript_500Medium,
+  DancingScript_600SemiBold,
+  DancingScript_700Bold,
+} from "@expo-google-fonts/dancing-script";
+
+import { useFonts } from "@expo-google-fonts/dancing-script";
+import AppLoading from "expo-app-loading";
+
+// create a component that return some jsx
+const App = () => {
+  let [fontsload] = useFonts({
+    DancingScript_400Regular,
+    DancingScript_500Medium,
+    DancingScript_600SemiBold,
+    DancingScript_700Bold,
+  });
+
+  if (!fontsload) {
+    return <AppLoading />;
+  }
+
+  return (
+    <ScrollView style={style.body}>
+      <ImageBackground source={{ uri: "" }}>
+        <View style={style.titlewrapper}>
+          <Text style={style.title}>Markets</Text>
+        </View>
+        <View style={style.line} />
+        <TouchableOpacity
+          onPress={() => {
+            Alert.alert("Do you want to Buy?");
+          }}
+        >
+          <CryptoCard
+            name="Bitcoin"
+            subname="BTC"
+            price="34,678.32"
+            hike="+4.32%"
+            img={require("./assets/btc.png")}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            Alert.alert("Do you want to Buy?");
+          }}
+        >
+          <CryptoCard
+            name="Etherium"
+            subname="ETH"
+            price="2,8044.30"
+            hike="-1.09%"
+            img={require("./assets/eth.png")}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            Alert.alert("Do you want to Buy?");
+          }}
+        >
+          <CryptoCard
+            name="Tether"
+            subname="USDT"
+            price="1.01"
+            hike="-0.01%"
+            img={require("./assets/thr.png")}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            Alert.alert("Do you want to Buy?");
+          }}
+        >
+          <CryptoCard
+            name="Dogecoin"
+            subname="DOGE"
+            price="314.79"
+            hike="+0.55%"
+            img={require("./assets/doge.png")}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            Alert.alert("Do you want to Buy?");
+          }}
+        >
+          <CryptoCard
+            name="Solana"
+            subname="SOL"
+            price="39.69"
+            hike="+1.62%"
+            img={require("./assets/isl.png")}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            Alert.alert("Do you want to Buy?");
+          }}
+        >
+          <CryptoCard
+            name="Bitcoin"
+            subname="BTC"
+            price="34,678.32"
+            hike="+4.32%"
+            img={require("./assets/btc.png")}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            Alert.alert("Do you want to Buy?");
+          }}
+        >
+          <CryptoCard
+            name="Tether"
+            subname="USDT"
+            price="1.01"
+            hike="-0.01%"
+            img={require("./assets/thr.png")}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            Alert.alert("Do you want to Buy?");
+          }}
+        >
+          <CryptoCard
+            name="Dogecoin"
+            subname="DOGE"
+            price="314.79"
+            hike="+0.55%"
+            img={require("./assets/doge.png")}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            Alert.alert("Do you want to Buy?");
+          }}
+        >
+          <CryptoCard
+            name="Etherium"
+            subname="ETH"
+            price="2,8044.30"
+            hike="-1.09%"
+            img={require("./assets/eth.png")}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            Alert.alert("Do you want to Buy?");
+          }}
+        >
+          <CryptoCard
+            name="Solana"
+            subname="SOL"
+            price="39.69"
+            hike="+1.62%"
+            img={require("./assets/isl.png")}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            Alert.alert("Do you want to Buy?");
+          }}
+        >
+          <CryptoCard
+            name="Bitcoin"
+            subname="BTC"
+            price="34,678.32"
+            hike="+4.32%"
+            img={require("./assets/btc.png")}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            Alert.alert("Do you want to Buy?");
+          }}
+        >
+          <CryptoCard
+            name="Etherium"
+            subname="ETH"
+            price="2,8044.30"
+            hike="-1.09%"
+            img={require("./assets/eth.png")}
+          />
+        </TouchableOpacity>
+      </ImageBackground>
+    </ScrollView>
+  );
+};
+
+const style = StyleSheet.create({
+  body: {
+    backgroundColor: "#180A0A",
+  },
+  titlewrapper: {
+    marginHorizontal: 10,
+    marginTop: 55,
+  },
+  title: {
+    fontWeight: "700",
+    fontSize: 24,
+    color: "white",
+  },
+  line: {
+    height: StyleSheet.hairlineWidth,
+    backgroundColor: "white",
+    marginVertical: 17,
+    marginBottom: 6,
+  },
+});
+
+export default App;
+
+
+
+
+//cryptocard.js
+
+import {
+  Text,
+  StyleSheet,
+  View,
+  Image,
+  FlatList,
+  Button,
+  Alert,
+  TouchableOpacity,
+  ScrollView,
+  ImageBackground,
+} from "react-native";
+import React from "react";
+
+const CryptoCard = (props) => {
+  return (
+    <View style={style.container}>
+      <View style={style.left}>
+        <Image source={props.img} style={style.logo} />
+        <View style={style.info}>
+          <Text style={style.name}>{props.name}</Text>
+          <Text style={style.subname}>{props.subname}</Text>
+        </View>
+      </View>
+
+      <View style={style.right}>
+        <Text style={style.price}>${props.price}</Text>
+        <Text style={style.hike}>{props.hike}</Text>
+      </View>
+    </View>
+  );
+};
+
+const style = StyleSheet.create({
+  container: {
+    //backgroundColor: "#B2A4FF",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    height: 80,
+    marginVertical: 15,
+  },
+  left: {
+    //backgroundColor: "red",
+    marginLeft: 5,
+    height: 110,
+    width: 200,
+    paddingHorizontal: 2,
+    display: "flex",
+    flexDirection: "row",
+    marginBottom: 10,
+  },
+  info: {
+    marginLeft: 5,
+    marginTop: 32,
+  },
+  logo: {
+    marginLeft: 0,
+    marginTop: 25,
+  },
+  right: {
+    //backgroundColor: "yellow",
+    marginRight: 0,
+    height: 75,
+    width: 120,
+    paddingTop: 5,
+    marginBottom: 10,
+    display: "flex",
+    justifyContent: "flex-end",
+  },
+  name: {
+    fontSize: 22,
+    marginBottom: 4,
+    fontWeight: "600",
+    color: "white",
+  },
+  subname: {
+    color: "black",
+    fontSize: 18,
+    color: "white",
+  },
+  price: {
+    fontSize: 19,
+    fontWeight: "600",
+    marginLeft: 0,
+    marginVertical: 10,
+    marginRight: 20,
+    textAlign: "right",
+    color: "white",
+  },
+  hike: {
+    marginLeft: 38,
+    marginRight: 20,
+    color: "#DDDDDD",
+    fontSize: 18,
+    textAlign: "right",
+  },
+});
+
+export default CryptoCard;
