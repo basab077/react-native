@@ -1,0 +1,22 @@
+How to use Google fonts in react-native:-
+
+Step 1) Go to directory.vercel.app for various fonts
+Step 2) Go to terminal and write =>  expo install @expo-google-fonts/nameOfFont 
+Step 3) expo install expo-app-loading
+Step 4) copy the  "import { ......} from .... "  from directory.vercel.app and paste on top of your App.js file where you needed
+Step 5) Under that write => import { useFonts } from "@expo-google-fonts/nameOfFont";
+Step 6) Under that write => import AppLoading from "expo-app-loading";
+Step 7) Between const App=()=>   and return (...
+paste this:
+let [fontsload] = useFonts({
+    DancingScript_400Regular,
+    DancingScript_500Medium,
+    DancingScript_600SemiBold,
+    DancingScript_700Bold,
+  });
+
+  if (!fontsload) {
+    return <AppLoading />;
+  }
+
+                  
