@@ -1,0 +1,92 @@
+//import librariess to create components
+import React from "react";
+import {
+  Text,
+  StyleSheet,
+  View,
+  Image,
+  FLatlist,
+  FlatList,
+  Button,
+  Alert,
+  TouchableOpacity,
+  ScrollView,
+  ImageBackground,
+} from "react-native";
+import Heroes from "./components/Heroes";
+import {
+  DancingScript_400Regular,
+  DancingScript_500Medium,
+  DancingScript_600SemiBold,
+  DancingScript_700Bold,
+} from "@expo-google-fonts/dancing-script";
+
+import { useFonts } from "@expo-google-fonts/dancing-script";
+import AppLoading from "expo-app-loading";
+
+// create a component that return some jsx
+const App = () => {
+  let [fontsload] = useFonts({
+    DancingScript_400Regular,
+    DancingScript_500Medium,
+    DancingScript_600SemiBold,
+    DancingScript_700Bold,
+  });
+
+  if (!fontsload) {
+    return <AppLoading />;
+  }
+
+  return (
+    <View style={style.container}>
+      <View style={style.mainBox}>
+        <View style={style.contentBox}>
+          <Text style={style.textStyle}>Box1</Text>
+        </View>
+        <View style={style.contentBox}>
+          <Text style={style.textStyle}>Box2</Text>
+        </View>
+        <View style={style.contentBox}>
+          <Text style={style.textStyle}>Box3</Text>
+        </View>
+      </View>
+    </View>
+  );
+};
+
+const style = StyleSheet.create({
+  container: {
+    marginHorizontal: 10,
+    height: 520,
+    marginVertical: 150,
+    borderWidth: 2,
+    backgroundColor: "#F2DF3A",
+  },
+
+  mainBox: {
+    marginHorizontal: 40,
+    marginVertical: 20,
+    height: 480,
+    borderWidth: 1,
+    backgroundColor: "#CA4E79",
+  },
+  contentBox: {
+    backgroundColor: "#3AB4F2",
+
+    height: 120,
+    marginVertical: 20,
+    borderWidth: 2,
+  },
+
+  textStyle: {
+    textAlign: "center",
+    marginVertical: 40,
+    fontSize: 25,
+    fontFamily: "DancingScript_500Medium",
+    textShadowColor: "red",
+    textShadowOffset: { width: 3, height: 3 },
+    textShadowRadius: 10,
+  },
+});
+
+export default App;
