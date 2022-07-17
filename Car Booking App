@@ -1,0 +1,157 @@
+//import librariess to create components
+import React from "react";
+import {
+  Text,
+  StyleSheet,
+  View,
+  Image,
+  FlatList,
+  Button,
+  Alert,
+  TouchableOpacity,
+  ScrollView,
+  ImageBackground,
+} from "react-native";
+import Heroes from "./components/Heroes";
+import {
+  DancingScript_400Regular,
+  DancingScript_500Medium,
+  DancingScript_600SemiBold,
+  DancingScript_700Bold,
+} from "@expo-google-fonts/dancing-script";
+
+import { useFonts } from "@expo-google-fonts/dancing-script";
+import AppLoading from "expo-app-loading";
+
+const carbrands = [
+  {
+    id: 1,
+    name: "Chevrolate-beat",
+    price: 339000,
+  },
+  {
+    id: 2,
+    name: "Maruti Suzuki",
+    price: 439000,
+  },
+  {
+    id: 3,
+    name: "Swift-Dezire",
+    price: 739000,
+  },
+  {
+    id: 4,
+    name: "Tata-Mahindra",
+    price: 839000,
+  },
+  {
+    id: 5,
+    name: "Honda-City",
+    price: 139000,
+  },
+  {
+    id: 6,
+    name: "Jaguar",
+    price: 7300000,
+  },
+  {
+    id: 7,
+    name: "Audi",
+    price: 11339000,
+  },
+  {
+    id: 8,
+    name: "Ferrari",
+    price: 511339000,
+  },
+];
+// create a component that return some jsx
+const App = () => {
+  let [fontsload] = useFonts({
+    DancingScript_400Regular,
+    DancingScript_500Medium,
+    DancingScript_600SemiBold,
+    DancingScript_700Bold,
+  });
+
+  if (!fontsload) {
+    return <AppLoading />;
+  }
+
+  return (
+    <FlatList
+      data={carbrands}
+      renderItem={(element) => {
+        return (
+          <ImageBackground source={require("./assets/lab.jpg")}>
+            <View style={style.container}>
+              <Text style={style.name}>{element.item.name}</Text>
+
+              <Text style={style.price}>₹ {element.item.price}</Text>
+              <TouchableOpacity
+                onPress={() => {
+                  Alert.alert("Your Car has been booked!");
+                  console.log("Booking Confirmed!!");
+                }}
+              >
+                <Text style={style.btn}>Book Now</Text>
+              </TouchableOpacity>
+            </View>
+          </ImageBackground>
+        );
+      }}
+    />
+  );
+};
+
+const style = StyleSheet.create({
+  container: {
+    marginTop: 60,
+
+    marginHorizontal: 30,
+    backgroundColor: "#362222",
+    height: 120,
+    borderRadius: 30,
+
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignContent: "space-around",
+  },
+
+  name: {
+    color: "white",
+    marginTop: 40,
+    marginLeft: 30,
+    marginRight: 15,
+    fontWeight: "900",
+    textShadowColor: "black",
+    textShadowOffset: { width: 3, height: 3 },
+    textShadowRadius: 10,
+  },
+  price: {
+    color: "white",
+    marginTop: 40,
+    marginRight: 20,
+    fontWeight: "900",
+    textShadowColor: "black",
+    textShadowOffset: { width: 3, height: 3 },
+    textShadowRadius: 10,
+  },
+  btn: {
+    color: "white",
+    textShadowColor: "white",
+    textShadowOffset: { width: 3, height: 3 },
+    textShadowRadius: 10,
+    marginTop: 36,
+    marginRight: 15,
+    backgroundColor: "blue",
+    height: 35,
+    paddingHorizontal: 16,
+    paddingVertical: 5,
+    borderRadius: 20,
+    fontFamily: "DancingScript_700Bold",
+  },
+});
+
+export default App;
