@@ -35,6 +35,10 @@ const App = (props) => {
     setCounter(counter - 1);
   }
 
+  function resetHandler() {
+    setCounter(0);
+  }
+
   let [fontsload] = useFonts({
     DancingScript_400Regular,
     DancingScript_500Medium,
@@ -50,7 +54,7 @@ const App = (props) => {
     <ScrollView style={style.body}>
       <View style={style.container}>
         <View style={style.countContainer}>
-          <Text style={style.count}>{props.counter}</Text>
+          <Text style={style.count}>{counter}</Text>
         </View>
 
         <View style={style.btncontainer}>
@@ -61,6 +65,11 @@ const App = (props) => {
             <Text style={style.down}>Dn</Text>
           </TouchableOpacity>
         </View>
+        <TouchableOpacity onPress={resetHandler}>
+          <View style={style.resetContainer}>
+            <Text style={style.reset}>Reset</Text>
+          </View>
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );
@@ -124,6 +133,20 @@ const style = StyleSheet.create({
     fontSize: 30,
     paddingHorizontal: 15,
     paddingVertical: 8,
+  },
+  resetContainer: {
+    backgroundColor: "yellow",
+    width: 120,
+    height: 60,
+    marginTop: 25,
+    marginLeft: 100,
+    borderRadius: 30,
+  },
+  reset: {
+    fontSize: 30,
+    paddingHorizontal: 19,
+    paddingVertical: 8,
+    fontWeight: "900",
   },
 });
 
