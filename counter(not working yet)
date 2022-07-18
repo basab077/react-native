@@ -1,0 +1,130 @@
+//import librariess to create components
+import React, { useState } from "react";
+import {
+  Text,
+  StyleSheet,
+  View,
+  Image,
+  FlatList,
+  Button,
+  Alert,
+  TouchableOpacity,
+  ScrollView,
+  ImageBackground,
+} from "react-native";
+import Heroes from "./components/Heroes";
+import CryptoCard from "./components/cryptoCard";
+import {
+  DancingScript_400Regular,
+  DancingScript_500Medium,
+  DancingScript_600SemiBold,
+  DancingScript_700Bold,
+} from "@expo-google-fonts/dancing-script";
+
+import { useFonts } from "@expo-google-fonts/dancing-script";
+import AppLoading from "expo-app-loading";
+
+// create a component that return some jsx
+const App = (props) => {
+  const [counter, setCounter] = useState(0);
+
+  function upHandler() {
+    setCounter(counter + 1);
+  }
+  function downHandler() {
+    setCounter(counter - 1);
+  }
+
+  let [fontsload] = useFonts({
+    DancingScript_400Regular,
+    DancingScript_500Medium,
+    DancingScript_600SemiBold,
+    DancingScript_700Bold,
+  });
+
+  if (!fontsload) {
+    return <AppLoading />;
+  }
+
+  return (
+    <ScrollView style={style.body}>
+      <View style={style.container}>
+        <View style={style.countContainer}>
+          <Text style={style.count}>{props.counter}</Text>
+        </View>
+
+        <View style={style.btncontainer}>
+          <TouchableOpacity onPress={upHandler}>
+            <Text style={style.up}>Up</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={downHandler}>
+            <Text style={style.down}>Dn</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </ScrollView>
+  );
+};
+
+const style = StyleSheet.create({
+  body: {
+    backgroundColor: "#E8AA42",
+  },
+  container: {
+    backgroundColor: "#2C3333",
+    marginVertical: 150,
+    marginHorizontal: 30,
+    height: 400,
+    borderRadius: 60,
+  },
+  countContainer: {
+    backgroundColor: "#0078AA",
+    width: 200,
+    marginTop: 50,
+    marginHorizontal: 70,
+    height: 70,
+    borderRadius: 60,
+  },
+  count: {
+    color: "white",
+    marginLeft: 90,
+    marginTop: 18,
+    fontSize: 25,
+    fontWeight: "900",
+  },
+
+  btncontainer: {
+    backgroundColor: "#CEE5D0",
+    width: 270,
+    marginHorizontal: 30,
+    marginTop: 60,
+    height: 120,
+    borderRadius: 50,
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignContent: "center",
+  },
+  up: {
+    backgroundColor: "#FF8B8B",
+    width: 70,
+    height: 60,
+    marginTop: 22,
+    borderRadius: 90,
+    fontSize: 30,
+    paddingHorizontal: 15,
+    paddingVertical: 8,
+  },
+  down: {
+    backgroundColor: "#76BA99",
+    width: 70,
+    height: 60,
+    marginTop: 22,
+    borderRadius: 90,
+    fontSize: 30,
+    paddingHorizontal: 15,
+    paddingVertical: 8,
+  },
+});
+
+export default App;
